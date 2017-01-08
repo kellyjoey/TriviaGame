@@ -196,7 +196,7 @@ $(document).ready(function(){
 		$("#explanation").html(quiz[i].explanation);
 		$("#image").attr("src", quiz[i].image);
 		function answerTimeout(){
-			answerTimer = setTimeout(nextQuestion, 10000);
+			answerTimer = setTimeout(nextQuestion, 5000);
 		};
 		answerTimeout();
 	};
@@ -206,16 +206,17 @@ $(document).ready(function(){
 		$(".choice").show();
 		$("#solutionDiv").hide();
 		stopwatch.reset();
-		if (i < 10){
+		// if (i < 10){
 			quizGo(i++);
-		}else{
-			$("#solutionDiv").html("That's the end of the quiz!  Thanks for playing!  Trivia written by Glen Weldon for NPR podcast 'Pop Culture Happy Hour.' Weldon is the author of 'The Caped Crusade: Batman and the Rise of Nerd Culture.'");
-			$("#question").hide();
-			$(".choice").hide();
-		};
+		// }else{
+		// 	$("#solutionDiv").html("That's the end of the quiz!  Thanks for playing!  Trivia written by Glen Weldon for NPR podcast 'Pop Culture Happy Hour.' Weldon is the author of 'The Caped Crusade: Batman and the Rise of Nerd Culture.'");
+		// 	$("#question").hide();
+		// 	$(".choice").hide();
+		// };
 	};
 
 	function quizGo(){
+		if (i < 11){
 	stopwatch.start(stopwatch.time);
 	var currentQuestion = quiz[i];
 	$("#question").html(currentQuestion.question);
@@ -224,6 +225,10 @@ $(document).ready(function(){
 	$("#choiceC").html(currentQuestion.choices[2]);
 	$("#choiceD").html(currentQuestion.choices[3]);
 	$("#choiceE").html(currentQuestion.choices[4]);
+	}else{
+		$("#question").html("That's the end of the quiz!  Thanks for playing!  Trivia written by Glen Weldon for NPR podcast 'Pop Culture Happy Hour.' Weldon is the author of 'The Caped Crusade: Batman and the Rise of Nerd Culture.'");
+		$(".choice").hide();
+	}
 	};
 
 
