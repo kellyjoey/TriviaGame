@@ -38,7 +38,8 @@ button{
 }
 
 .choice{ 
-	display: inline-flex; }
+	display: inline-flex;
+}
 
 #image{
 	max-width: 100%;

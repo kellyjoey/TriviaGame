@@ -2,12 +2,14 @@ $(document).ready(function(){
 	$(".default").hide();
 	$(".clock").hide();
 	var counter;
+	var correct = 0;
+	var incorrect = 0;
 
 	var stopwatch ={
-		time: 25,
+		time: 30,
 
 		reset: function() {
-			stopwatch.time = 25;
+			stopwatch.time = 30;
 			$("#countdown").html("<h3><strong>Timer: " + stopwatch.time + "</strong></h3>");
 		},
 
@@ -21,6 +23,7 @@ $(document).ready(function(){
 				$("#countdown").html("<h3><strong>Timer: " + stopwatch.time + "</strong></h3>");
 			}else{
 				stopwatch.stop();
+				incorrect++;
 				$("#countdown").html("<h3><strong> OUT OF TIME! <strong><h3>");
 				solution()
 			};
@@ -196,7 +199,7 @@ $(document).ready(function(){
 		$("#explanation").html(quiz[i].explanation);
 		$("#image").attr("src", quiz[i].image);
 		function answerTimeout(){
-			answerTimer = setTimeout(nextQuestion, 5000);
+			answerTimer = setTimeout(nextQuestion, 25000);
 		};
 		answerTimeout();
 	};
@@ -226,8 +229,9 @@ $(document).ready(function(){
 	$("#choiceD").html(currentQuestion.choices[3]);
 	$("#choiceE").html(currentQuestion.choices[4]);
 	}else{
-		$("#question").html("That's the end of the quiz!  Thanks for playing!  Trivia written by Glen Weldon for NPR podcast 'Pop Culture Happy Hour.' Weldon is the author of 'The Caped Crusade: Batman and the Rise of Nerd Culture.'");
+		$("#question").html("That's the end of the quiz!  Thanks for playing!  <p>Correct: " + correct + "</p><p>Wrong: " + incorrect + "</p><p>Trivia written by Glen Weldon for NPR podcast 'Pop Culture Happy Hour.' Weldon is the author of 'The Caped Crusade: Batman and the Rise of Nerd Culture.'</p>");
 		$(".choice").hide();
+		$("#startBtn").show();
 	}
 	};
 
@@ -246,11 +250,13 @@ $(".choice").on("click", function(){
 	console.log(quiz[i].answer);
 
 	if ((this.value)===(quiz[i].answer)){
+		correct++;
 		$("#reveal").html("CORRECT");
 		solution();
 		$("#question").hide();
 		$(".choice").hide();
 	}else{
+		incorrect++;
 		$("#reveal").html("WRONG!");
 		solution();
 		$("#question").hide();
