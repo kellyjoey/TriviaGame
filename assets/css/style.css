@@ -1,0 +1,45 @@
+body{
+	background-image:url(../images/old-batman-logo.jpg);
+	background-size: cover;
+	font-family: 'Bangers', cursive;
+
+}
+
+.text-center{
+	margin: 0 auto;
+	float: none;
+}
+
+h1{
+	font-size: 70px;
+	color: black;
+   -webkit-text-fill-color: red; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 3px;
+   -webkit-text-stroke-color: black;
+}
+
+h3{
+	font-size: 35px;
+	color: black;
+   -webkit-text-fill-color: red; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+}
+
+button{
+	color: black;
+   -webkit-text-fill-color: red; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+}
+
+.well{
+	font-size: 30px;
+}
+
+.choice{ 
+	display: inline-flex; }
+
+#image{
+	max-width: 100%;
+}

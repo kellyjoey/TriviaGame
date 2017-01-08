@@ -3,6 +3,7 @@
 <head>
 	<title>Batman Trivia</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	
@@ -12,14 +13,14 @@
 		<div class="page-header">
 			<h1 class="text-center">HOLY TRIVIA BATMAN!</h1>
 		</div>
-		<div class="clock text-center">
-			<h3>(countdown clock)</h3>
+		<div class="clock text-center" id="countdown">
+			<h3>Timer:  20</h3>
 		</div>
-		<div class="row panel default well">
-			<div class = "col-md-12 text-center">
-				<button class="btn btn-warning" id="start"><strong>Start Quiz</strong></button>
+			<div class = "col-md-12 text-center" id="startBtn">
+				<button class="btn btn-outline-danger btn-lg" id="start"><strong>Start Quiz</strong></button>
 			</div>
-		<div class ="row panel default">
+		<div class="row panel default well">	
+			<div class ="row panel default" id="solutionDiv">
 				<div class="col-md-12 text-center" id="reveal">
 				</div> 
 				<div class="col-md-12 text-center" id="correct">
@@ -29,36 +30,31 @@
 				<div class="col-md-12 text-center"><img id ="image" src="">
 				</div>
 			</div>
-		</div>
 
-		<div class="row panel default">
-			<div class = "col-md-12" id= "question">
+			<div class="row panel default">
+				<div class = "col-md-12" id= "question">
+				</div>
+			</div>	
+			<div class="row panel default">
+				<button class="choice" id="buttonA" value="0">A</button>
+				<div class = "choice" id="choiceA"></div>
 			</div>
-		</div>	
-		<div class="row panel default">
-			<div class = "col-md-12" id= "choices">
+			<div class="row panel default">
+				<button class="choice" id="buttonB" value="1">B</button>
+				<div class = "choice" id="choiceB"></div>
 			</div>
-		</div>
-		<div class="row panel default">
-			<button class="choice" id="buttonA" value="0">A</button>
-			<div id="choiceA"></div>
-		</div>
-		<div class="row panel default">
-			<button class="choice" id="buttonB" value="1">B</button>
-			<div id="choiceB"></div>
-		</div>
-		<div class="row panel default">
-			<button class="choice" id="buttonC" value="2">C</button>
-			<div id="choiceC"></div>
-		</div>
-		<div class="row panel default">
-			<button class="choice" id="buttonD" value="3">D</button>
-			<div id="choiceD"></div>
-		</div>
-		<div class="row panel default">
-			<button class="choice" id="buttonE" value="4">E</button>
-			<div id="choiceE"></div>
-			
+			<div class="row panel default">
+				<button class="choice" id="buttonC" value="2">C</button>
+				<div class="choice" id="choiceC"></div>
+			</div>
+				<div class="row panel default">
+				<button class="choice" id="buttonD" value="3">D</button>
+				<div class="choice" id="choiceD"></div>
+			</div>
+			<div class="row panel default">
+				<button class="choice" id="buttonE" value="4">E</button>
+				<div class="choice" id="choiceE"></div>
+			</div>	
 		</div>
 	</div>
 
