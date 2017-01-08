@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var counter;
 	var correct = 0;
 	var incorrect = 0;
-
+	//The Countdown clock object goes here
 	var stopwatch ={
 		time: 30,
 
@@ -34,7 +34,7 @@ $(document).ready(function(){
 		},
 		
 	};
-
+	//The quiz content goes here.
 	var quiz = [
     	{
         "question"      :   "Q1: How many criminals did Batman kill in his first year of comic book life, meaning we're talking about between May 1939 and May 1940?  How many evil-doers met their fates at his gloved hands?",
@@ -192,32 +192,27 @@ $(document).ready(function(){
     },
 
 ];
-
+	//Function to display solution:
 	function solution(){
 		$("#solutionDiv").show();
 		$("#correct").html(quiz[i].correct);
 		$("#explanation").html(quiz[i].explanation);
 		$("#image").attr("src", quiz[i].image);
 		function answerTimeout(){
-			answerTimer = setTimeout(nextQuestion, 25000);
+			answerTimer = setTimeout(nextQuestion, 20000);
 		};
 		answerTimeout();
 	};
-
+	//Function to switch to the next quiz question:
 	function nextQuestion(){
 		$("#question").show();
 		$(".choice").show();
 		$("#solutionDiv").hide();
 		stopwatch.reset();
-		// if (i < 10){
-			quizGo(i++);
-		// }else{
-		// 	$("#solutionDiv").html("That's the end of the quiz!  Thanks for playing!  Trivia written by Glen Weldon for NPR podcast 'Pop Culture Happy Hour.' Weldon is the author of 'The Caped Crusade: Batman and the Rise of Nerd Culture.'");
-		// 	$("#question").hide();
-		// 	$(".choice").hide();
-		// };
+		quizGo(i++);
+	
 	};
-
+	//Function to display the questions and choices
 	function quizGo(){
 		if (i < 11){
 	stopwatch.start(stopwatch.time);
@@ -236,14 +231,17 @@ $(document).ready(function(){
 	};
 
 
-
+//Function to run when the start quiz button is clicked
 $("#start").on("click", function(){
-	$("#startBtn").hide();
 	$(".default").show();
+	$("#solutionDiv").hide();
+	$("#startBtn").hide();
+	$(".choice").show();
+	$("#question").show();
 	$(".clock").show();
 	quizGo(i=0);
 
-
+//Function to run when the player chooses a quiz option
 $(".choice").on("click", function(){
 	stopwatch.stop();
 	console.log(this.value);
