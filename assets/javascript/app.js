@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	//Hide everything except for title and start button when page loads
 	$(".default").hide();
 	$(".clock").hide();
 	var counter;
@@ -210,7 +211,6 @@ $(document).ready(function(){
 		$("#solutionDiv").hide();
 		stopwatch.reset();
 		quizGo(i++);
-	
 	};
 	//Function to display the questions and choices
 	function quizGo(){
@@ -223,6 +223,7 @@ $(document).ready(function(){
 	$("#choiceC").html(currentQuestion.choices[2]);
 	$("#choiceD").html(currentQuestion.choices[3]);
 	$("#choiceE").html(currentQuestion.choices[4]);
+	//Switch to end game screen after 11 questions
 	}else{
 		$("#question").html("That's the end of the quiz!  Thanks for playing!  <p>Correct: " + correct + "</p><p>Wrong: " + incorrect + "</p><p>Trivia written by Glen Weldon for NPR podcast 'Pop Culture Happy Hour.' Weldon is the author of 'The Caped Crusade: Batman and the Rise of Nerd Culture.'</p>");
 		$(".choice").hide();
@@ -241,7 +242,7 @@ $("#start").on("click", function(){
 	$(".clock").show();
 	quizGo(i=0);
 
-//Function to run when the player chooses a quiz option
+//Function to run when the player chooses an answer
 $(".choice").on("click", function(){
 	stopwatch.stop();
 	console.log(this.value);
